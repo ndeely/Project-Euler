@@ -1,5 +1,5 @@
 public class Main {
     public static void main(String[] args) {
-        new Problem3();
+        new Problem6();
     }
 }

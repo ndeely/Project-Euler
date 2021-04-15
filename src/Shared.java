@@ -34,4 +34,17 @@ public class Shared {
             return true;
         }
     }
+
+    public static boolean isPalindromic(int n) {
+        String s = Integer.toString(n);
+        while (s.length() > 1) {
+            String c1 = s.substring(0, 1);
+            String c2 = s.substring(s.length() - 1);
+            if (!c1.equals(c2)) {
+                return false;
+            }
+            s = s.substring(1, s.length() - 1);
+        }
+        return true;
+    }
 }
