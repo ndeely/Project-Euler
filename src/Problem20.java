@@ -20,7 +20,7 @@ public class Problem20 {
 
     private BigInteger factorial(int n) {
         BigInteger result = new BigInteger("1");
-        for (int i = n; i > 0; i++) {
+        for (int i = 1; i < n + 1; i++) {
             result = result.multiply(BigInteger.valueOf(i));
         }
         return result;
