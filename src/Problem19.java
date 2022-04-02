@@ -16,29 +16,6 @@ How many Sundays fell on the first of the month during the twentieth century (1 
 import java.util.stream.IntStream;
 
 public class Problem19 {
-    private final String[] days = {
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"
-    };
-    private final String[] months = {
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"
-    };
 
     public Problem19() {
         int year = 1900;
@@ -48,13 +25,13 @@ public class Problem19 {
 
         while (year <= 2000) {
             // add this months days to day
-            int dayIndex = findIndex(this.days, day);
-            int monthIndex = findIndex(this.months, month);
+            int dayIndex = Shared.findIndex(Shared.days, day);
+            int monthIndex = Shared.findIndex(Shared.months, month);
             int daysInMonth = getDaysInMonth(month, year);
 
             // add a month and find new day/month/year
-            day = days[(dayIndex + daysInMonth) % 7];
-            month = months[(monthIndex + 1) % 12];
+            day = Shared.days[(dayIndex + daysInMonth) % 7];
+            month = Shared.months[(monthIndex + 1) % 12];
             year += month.equals("January") ? 1 : 0;
 
             // if day = Sunday and year != 1900, sundaycount += 1
@@ -63,16 +40,6 @@ public class Problem19 {
 
         // print result
         System.out.println("Sunday Count: " + sundayCount);
-    }
-
-    // Function to find the index of an element
-    public int findIndex(String arr[], String t)
-    {
-        int len = arr.length;
-        return IntStream.range(0, len)
-                .filter(i -> t.equals(arr[i]))
-                .findFirst() // first occurrence
-                .orElse(-1); // No element found
     }
 
     private int getDaysInMonth(String month, int year) {

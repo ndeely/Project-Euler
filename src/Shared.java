@@ -1,5 +1,44 @@
+import java.util.stream.IntStream;
+
 // shared methods
 public class Shared {
+    public static final String[] days = {
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+    };
+    public static final String[] months = {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+    };
+
+    public static final String[] alphabet = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",
+            "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+
+    // Function to find the index of an element
+    public static int findIndex(String arr[], String t)
+    {
+        int len = arr.length;
+        return IntStream.range(0, len)
+                .filter(i -> t.equals(arr[i]))
+                .findFirst() // first occurrence
+                .orElse(-1); // No element found
+    }
+
 
     public static boolean isPrime(int n) {
         if (n < 1) {
